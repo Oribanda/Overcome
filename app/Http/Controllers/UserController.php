@@ -100,7 +100,7 @@ class UserController extends Controller
             'email'                   => 'required|email',
             'password'                => 'required|confirmed|min:8|max:8|confirmed',
             'password_confirmation'   => 'required',
-            'avatar'                  => 'nullable|file|image|max:10M',
+            'avatar'                  => 'nullable|file|mimes:jpeg,png,jpg|max:10M',
             // 'avatar'                  => 'required|file|mimes:jpeg,png,jpg|max_size:10M',
         ];
 
