@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $user = Auth::user();
+        // $users = User::all();
 
-        return view('user/index', compact('users'));
+        // 取得した値をビュー「user/index」に渡す
+        // return view('user/index', compact('users'));
+
+        return view('user/index', compact('user'));
     }
 
     public function create()
@@ -24,8 +30,10 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        // DBよりURIパラメータと同じIDを持つUserの情報を取得
         $user = User::findOrFail($id);
 
+        // 取得した値をビュー「user/edit」に渡す
         return view('user/edit', compact('user'));
     }
 
