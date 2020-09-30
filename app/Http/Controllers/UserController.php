@@ -12,13 +12,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        // $users = User::all();
+        // ログインしているuser
+        $users = Auth::user();
+
 
         // 取得した値をビュー「user/index」に渡す
-        // return view('user/index', compact('users'));
-
-        return view('user/index', compact('user'));
+        return view('user/index', compact('users'));
     }
 
     public function create()
