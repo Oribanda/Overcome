@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class LessonsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,20 +13,21 @@ class UsersTableSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         // テーブルのクリア
-        DB::table('users')->truncate();
+        DB::table('lessons')->truncate();
 
         // 初期データ用意（列名をキーとする連想配列）
-        $users = [
+        $lessons = [
             [
-                'name' => 'testUser',
-                'email' => 'testUser@testUser.com',
-                'password' => 'ssss5555'
+                'name' => 'TakuClass',
+                'member' => 8,
+                'user_id' => 2,
+                'admin_id' => 1,
             ]
         ];
 
         // 登録
-        foreach ($users as $user) {
-            \App\Models\User::create($user);
+        foreach ($lessons as $lesson) {
+            \App\Models\Lesson::create($lesson);
         }
     }
 }

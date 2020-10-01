@@ -29,8 +29,8 @@
                         <input type="file" class="form-control" name="avatar" value="{{ $user->avatar }}">
                     </div>
                     <div class="form-group">
-                        <label for="class">クラス名</label>
-                        <input type="text" class="form-control" name="class" value="{{ $class->name }}">
+                        <label for="name">クラス名</label>
+                        <input type="text" class="form-control" name="name" value="{{ $lesson->name }}">
                     </div>
                     <div class="form-group">
                         <label for="song_name">練習曲</label>

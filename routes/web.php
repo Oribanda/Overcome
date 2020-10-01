@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::resource('user', 'UserController');
-Route::resource('user', 'ClassController');
+// Route::resource('user', 'LessonController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

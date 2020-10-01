@@ -2,45 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Class;
 
-class ClassController extends Controller
+class LessonController extends Controller
 {
     public function index()
     {
-        $class = Auth::user();
+        // ログインしているuser
+        $lessons = Auth::user();
 
-        return view('user/index', compact('class'));
+
+        // 取得した値をビュー「user/index」に渡す
+        return view('user/index', compact('lessons'));
     }
 
     public function create()
     {
-        $user = new Class();
+        $lesson = new Lesson();
 
-        return view('user/create', compact('class'));
+        return view('user/create', compact('Lesson'));
     }
 
     public function edit($id)
     {
-
-        $class = Class::findOrFail($id);
+        // DBよりURIパラメータと同じIDを持つLessonの情報を取得
+        $lesson = Lesson::findOrFail($id);
 
         // 取得した値をビュー「user/edit」に渡す
-        return view('user/edit', compact('user'));
+        return view('user/edit', compact('lesson'));
     }
 
     public function update(Request $request, $id)
     {
-        $class = Class::findOrFail($id);
-        $class->name = $request->name;
-        $class->member = $request->member;
-        $class->user_id = $request->user_id;
-        $class->admin_id = $request->admin_id;
 
-
+        $lesson = Lesson::findOrFail($id);
+        $lesson->name = $request->name;
         if ($request->avatar == null) {
 
             // avatarが選択されていない場合
@@ -51,31 +50,26 @@ class ClassController extends Controller
             // public/imageshogehogeoghoe.jpgみたいな名前になるので、storage/images/を消す
             $file_name = str_replace('public/images', '', $file_path);
             // $file_nameをDBに保存
-            $class->avatar = $file_name;
+            $lesson->avatar = $file_name;
         }
-        $class->save();
+        $lesson->save();
 
-        // return redirect("/user")->with(['validated' => $validated]);
         return redirect("/user");
     }
 
     public function destroy($id)
     {
-        $class = Class::findOrFail($id);
-        $class->delete();
+        $lesson = Lesson::findOrFail($id);
+        $lesson->delete();
 
         return redirect("/user");
     }
 
     public function store(Request $request)
     {
-        $class = Class::findOrFail($id);
-        $class->name = $request->name;
-        $class->member = $request->member;
-        $class->user_id = $request->user_id;
-        $class->admin_id = $request->admin_id;
 
-
+        $lesson = new Lesson();
+        $lesson->name = $request->name;
         if ($request->avatar == null) {
 
             // avatarが選択されていない場合
@@ -86,11 +80,11 @@ class ClassController extends Controller
             // public/imageshogehogeoghoe.jpgみたいな名前になるので、storage/images/を消す
             $file_name = str_replace('public/images', '', $file_path);
             // $file_nameをDBに保存
-            $class->avatar = $file_name;
+            $lesson->avatar = $file_name;
         }
-        $class->save();
 
-        // return redirect("/user")->with(['validated' => $validated]);
-        return redirect("/user");
+        $lesson->save();
+
+        return redirect("lesson");
     }
 }
