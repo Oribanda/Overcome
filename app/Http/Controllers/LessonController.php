@@ -12,7 +12,7 @@ class LessonController extends Controller
     public function index()
     {
         // ログインしているuser
-        $lessons = Auth::user();
+        $lessons = Auth::lesson();
 
 
         // 取得した値をビュー「user/index」に渡す
