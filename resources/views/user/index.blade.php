@@ -36,6 +36,8 @@
                         <th class="text-center">ストレッチ練習回数</th>
                         <th class="text-center">ファルセット練習回数</th>
                         <th class="text-center">その他</th>
+                        <th class="text-center">登録日</th>
+                        <th class="text-center">最終更新日</th>
                     </tr>
 
                     <tr>

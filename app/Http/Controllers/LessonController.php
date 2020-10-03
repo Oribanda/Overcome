@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
     public function index()
     {
         // ログインしているuser
-        $lessons = Auth::lesson();
+        $lesson = Lesson::find(1);
 
 
         // 取得した値をビュー「user/index」に渡す
-        return view('user/index', compact('lessons'));
+        return view('user/index', compact('lesson'));
     }
 
     public function create()
@@ -28,11 +28,12 @@ class LessonController extends Controller
 
     public function edit($id)
     {
-        // DBよりURIパラメータと同じIDを持つLessonの情報を取得
-        $lesson = Lesson::findOrFail($id);
+        \Log::info($id);
 
-        // 取得した値をビュー「user/edit」に渡す
-        return view('user/edit', compact('lesson'));
+        $lessons = Lesson::select('name')->get();
+
+
+        return view('user/edit', compact('lessons'));
     }
 
     public function update(Request $request, $id)

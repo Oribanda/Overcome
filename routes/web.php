@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::resource('user', 'UserController');
 Route::get('lesson/{id}', 'LessonController@edit');
+Route::post('lesson/{id}', 'LessonController@update');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
