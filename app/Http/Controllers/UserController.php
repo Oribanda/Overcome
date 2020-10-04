@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -32,11 +31,9 @@ class UserController extends Controller
     {
         // DBよりURIパラメータと同じIDを持つUserの情報を取得
         $user = User::findOrFail($id);
-        $lesson = Lesson::findOrFail($id);
 
         // 取得した値をビュー「user/edit」に渡す
         return view('user/edit', compact('user'));
-        return view('user/edit', Lesson::select('name')->get());
     }
 
     public function update(Request $request, $id)
@@ -47,7 +44,7 @@ class UserController extends Controller
             'email'                   => 'required|email',
             'password'                => 'required|confirmed|min:8|max:8|confirmed',
             'password_confirmation'   => 'required',
-            'avatar'                  => 'nullable|file|image|max:10M',
+            // 'avatar'                  => 'nullable|file|image|max:10M',
             // 'avatar'                  => 'required|file|mimes:jpeg,png,jpg|max_size:10M',
         ];
 
@@ -61,10 +58,10 @@ class UserController extends Controller
             'password.max'            => 'パスワードは:max文字以内で入力して下さい。',
             'confirmed'               => 'パスワードと確認用パスワードが一致していません。',
             'required'                => '確認用パスワードを入力して下さい。',
-            'avatar.nullable'         => '画像はjpeg,png,jpgのいずれかの画像を選択して下さい。',
-            'avatar.mimes'            => '画像はjpeg,png,jpgのいずれかの画像を選択して下さい。',
-            'avatar.uploaded'         => '選択されたアバターは画像ファイルではありません。',
-            'avatar.max_size'         => '画像は:max以下の画像ファイルを選択して下さい。',
+            // 'avatar.nullable'         => '画像はjpeg,png,jpgのいずれかの画像を選択して下さい。',
+            // 'avatar.mimes'            => '画像はjpeg,png,jpgのいずれかの画像を選択して下さい。',
+            // 'avatar.uploaded'         => '選択されたアバターは画像ファイルではありません。',
+            // 'avatar.max_size'         => '画像は:max以下の画像ファイルを選択して下さい。',
         ];
 
 

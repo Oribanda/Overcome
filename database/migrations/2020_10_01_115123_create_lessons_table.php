@@ -17,7 +17,6 @@ class CreateLessonsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('member');
-            $table->string('avatar')->default('noimage.png');
             $table->integer('user_id')->unsigned();
             $table->integer('admin_id')->unsigned();
             $table->timestamps();

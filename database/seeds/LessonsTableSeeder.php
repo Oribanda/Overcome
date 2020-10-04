@@ -18,7 +18,7 @@ class LessonsTableSeeder extends Seeder
         // 初期データ用意（列名をキーとする連想配列）
         $lessons = [
             [
-                'name' => 'TakuClass',
+                'name' => 'AClass',
                 'member' => 8,
                 'user_id' => 2,
                 'admin_id' => 1,
