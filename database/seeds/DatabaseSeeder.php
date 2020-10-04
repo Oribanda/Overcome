@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // UsersTableSeederなどを読み込むように指定
         $this->call(UsersTableSeeder::class);
         $this->call(AdminsTableSeeder::class);
-        $this->call(ClassesTableSeeder::class);
+        $this->call(LessonsTableSeeder::class);
         $this->call(SongsTableSeeder::class);
         $this->call(PracticesTableSeeder::class);
         $this->call(ScalesTableSeeder::class);
