@@ -22,8 +22,6 @@ class CreatePracticesTable extends Migration
             $table->integer('stretch_times');
             $table->integer('falsetto_times');
             $table->text('other');
-            $table->string('practice_song');
-            $table->string('practice_artist');
             $table->integer('user_id')->unsigned();
             $table->integer('song_id')->unsigned();
             $table->timestamps();
