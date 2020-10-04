@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -31,9 +32,11 @@ class UserController extends Controller
     {
         // DBよりURIパラメータと同じIDを持つUserの情報を取得
         $user = User::findOrFail($id);
+        $lesson = Lesson::findOrFail($id);
 
         // 取得した値をビュー「user/edit」に渡す
         return view('user/edit', compact('user'));
+        return view('user/edit', Lesson::select('name')->get());
     }
 
     public function update(Request $request, $id)

@@ -3,21 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class Lesson extends Authenticatable
+
+
+class Lesson extends Model
 {
-    use Notifiable;
+    // public function lessons()
+    // {
+    //     $lessons = App\Post::find(1)->lessons;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-    ];
+    //     foreach ($lessons as $lesson) {
+
+    //     }
+    //     return $this->hasMany('App\Models\Lesson');
+    // }
 
 }

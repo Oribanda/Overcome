@@ -31,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="name">クラス名</label>
-                    <input type="text" class="form-control" name="name" value="{{ $lessons->name }}">
+                    <input type="text" class="form-control" name="name" value="{{ $lesson->name }}">
                 </div>
 
 
