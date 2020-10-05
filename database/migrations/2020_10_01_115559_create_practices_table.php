@@ -17,10 +17,10 @@ class CreatePracticesTable extends Migration
             $table->increments('id');
             $table->integer('practice_time');
             $table->string('bass_key');
-            $table->integer('bass_times');
+            $table->integer('bass_time');
             $table->string('stretch_key');
-            $table->integer('stretch_times');
-            $table->integer('falsetto_times');
+            $table->integer('stretch_time');
+            $table->integer('falsetto_time');
             $table->text('other');
             $table->integer('user_id')->unsigned();
             $table->integer('song_id')->unsigned();

@@ -15,6 +15,15 @@ class CreateGendersTable extends Migration
     {
         Schema::create('genders', function (Blueprint $table) {
             $table->increments('id');
+
+
+
+
+
+
+
+
+            
             $table->string('man');
             $table->string('woman');
             $table->integer('song_id')->unsigned();
